@@ -8,6 +8,14 @@ if (isset($_POST['data'])) {
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
+}elseif(isset($_POST['delete_event'])){
+    try {
+        $stmt = $conn->prepare("DELETE FROM todo_list where id=?");
+        $stmt->execute(array($_POST['delete_event']));
+        echo "delete successfully";
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
 } else {
     try {
         $stmt = $conn->prepare("SELECT * FROM todo_list");
@@ -31,7 +39,7 @@ if (isset($_POST['data'])) {
                                     </label>
                                 </div>
                             </div>
-                            <div class="col"><i class="fa fa-times times"></i></div>
+                            <div class="col"><i class="fa fa-times times" onclick="delete_event('<?php echo $row['id']; ?>', 'ajax.php','.events-border')"></i></div>
                         </div>
                     </div>
                 </div>
