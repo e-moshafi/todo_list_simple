@@ -1,4 +1,35 @@
-
+.event{
+    padding:20px;
+    border: 1px solid #b1b1b1;
+    border-radius:50px
+}
+.event>h4,span{
+    color: #707070;
+    font-style: oblique 50deg;
+}
+.margin-top-50{
+    margin-top:50px
+}
+.times{
+cursor: pointer;
+margin-top: 5px;
+}
+.events-border{
+    overflow-y: auto;
+}
+ ::-webkit-scrollbar {
+    width: 10px; 
+  }
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
 .active{
     display:block;
 }
