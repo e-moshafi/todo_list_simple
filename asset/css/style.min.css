@@ -1,7 +1,8 @@
 .event{
     padding:20px;
     border: 1px solid #b1b1b1;
-    border-radius:50px
+    border-radius:50px;
+    margin-top:10px;
 }
 .event>h4,span{
     color: #707070;
