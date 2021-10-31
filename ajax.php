@@ -16,6 +16,14 @@ if (isset($_POST['data'])) {
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
+}elseif(isset($_POST['checked_event'])){
+    try {
+        $stmt = $conn->prepare("UPDATE todo_list SET checked=1 where id=?");
+        $stmt->execute(array($_POST['checked_event']));
+        echo "checked successfully";
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
 } else {
     try {
         $stmt = $conn->prepare("SELECT * FROM todo_list");
@@ -34,8 +42,8 @@ if (isset($_POST['data'])) {
                         <div class="row">
                             <div class="col">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                                    <label class="form-check-label" for="exampleRadios1">
+                                    <input class="form-check-input" type="radio" onclick="checked_event('<?php echo $row['id']; ?>', 'ajax.php','.events-border')" <?php if($row['checked']==1){ echo "checked"; } ?> />
+                                    <label class="form-check-label">
                                     </label>
                                 </div>
                             </div>
